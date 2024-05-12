@@ -1,0 +1,53 @@
+{
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.2",
+    "@types/cors": "^2.8.12",
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.14",
+    "@types/jsonwebtoken": "^8.5.9",
+    "@types/mongoose": "^5.11.97",
+    "@types/multer": "^1.4.7",
+    "ts-node": "^10.9.1",
+    "ts-node-dev": "^2.0.0",
+    "ts-standard": "^12.0.1",
+    "typescript": "^4.9.3"
+  },
+  "name": "api-rest-ts",
+  "version": "1.0.0",
+  "main": "index.js",
+  "dependencies": {
+    "bcryptjs": "2.4.3",
+    "cors": "2.8.5",
+    "dotenv": "16.0.3",
+    "express": "4.18.2",
+    "jsonwebtoken": "8.5.1",
+    "mongoose": "6.7.2",
+    "multer": "1.4.5-lts.1"
+  },
+  "scripts": {
+    "dev": "ts-node-dev src/app.ts",
+    "lint": "ts-standard",
+    "tsc": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dev-43MrL/api-rest-ts.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dev-43MrL/api-rest-ts/issues"
+  },
+  "homepage": "https://github.com/Dev-43MrL/api-rest-ts#readme",
+  "description": "",
+  "eslintConfig": {
+    "parserOptions": {
+      "project": "./tsconfig.json"
+    },
+    "extends": [
+      "./node_modules/ts-standard/eslintrc.json"
+    ]
+  }
+}
