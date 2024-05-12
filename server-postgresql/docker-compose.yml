@@ -1,0 +1,55 @@
+version: "3.9"
+services:
+  api:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    command: npm run dev
+    ports:
+      - "3000:3000"
+    volumes: 
+      - .:/app
+
+  postgres:
+    image: postgres:15.1-alpine
+    restart: always
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=root
+    volumes:
+      - postgresData:/var/lib/postgresql/data
+ 
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "admin@admin.com"
+      PGADMIN_DEFAULT_PASSWORD: "admin"
+    ports:
+      - "80:80"
+    depends_on:
+      - postgres
+    volumes: 
+      - pgadminData:/var/lib/pgadmin/ 
+
+  minio:
+    image: minio/minio
+    container_name: Minio
+    command: server /data
+    ports:
+      - 9000:9000
+    env_file:
+      - .env
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ROOT_USER}
+      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}
+    volumes:
+      - minio-data:/data
+
+volumes:
+  postgresData:
+  pgadminData:
+  minio-data:
+  .:
